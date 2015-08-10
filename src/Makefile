@@ -50,9 +50,11 @@ LUA_PATH=${LIB_PATH}/${LUA_VER}
 #LUA_FILE=${LUA_PATH}.tar.gz
 LUA_LIBA=${LUA_PATH}/src/liblua.a
 
+
 MMKV_VER=mmkv
 MMKV_PATH=${LIB_PATH}/${MMKV_VER}
 MMKV_LIBA=${MMKV_PATH}/src/libmmkv.a
+LZ4_LIBA=${MMKV_PATH}/deps/lz4/liblz4.a
 
 OPTIMIZATION?=-O2
 OPT=$(OPTIMIZATION)
@@ -88,7 +90,7 @@ MALLOC_LIBA=${JEMALLOC_LIBA}
 DEP_LIBS+=jemalloc
 endif
 
-LIBS= ${LUA_LIBA} ${MMKV_LIBA}  ${MALLOC_LIBA} ${SNAPPY_LIBA} -lpthread
+LIBS= ${LUA_LIBA} ${MMKV_LIBA} ${LZ4_LIBA} ${MALLOC_LIBA} ${SNAPPY_LIBA} -lpthread
 
 %.o : %.cpp
 	${CXX} -c ${CXXFLAGS} ${INCS} $< -o $@
