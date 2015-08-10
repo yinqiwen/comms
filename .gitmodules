@@ -1,0 +1,3 @@
+[submodule "deps/mmkv"]
+	path = deps/mmkv
+	url = git@github.com:yinqiwen/mmkv.git
